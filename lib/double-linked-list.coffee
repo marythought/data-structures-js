@@ -1,46 +1,61 @@
 class Node
-  constructor: (value, prev, next) ->
-    @value = value
-    @prev = prev || nil
-    @next = next || nil
+  constructor: (@value, @prev=null, @next=null) ->
 
 class LinkedList
-  constructor: ->
-    @head = nil
-    @tail = nil
+  constructor: (@head=null, @tail=null) ->
 
-  add = (value) ->
-    @head = Node.new(value, @head)
+  add: (value) ->
+    if @head == null
+      @head = new Node(value)
+      @tail = @head
+    else
+      current = new Node(value, @head)
+      @head = current
+      current.prev.next = current
 
-  remove = (value) ->
+  remove: (value) ->
     current = @head
     while current
-      if current.value == value && current == @head
-        head = current.prev
-        current.prev.next = nil
-        return current
-      else if current.value == value && current == @tail
-        tail = current.next
-        current.next.prev = nil
-        return current
-      else if current.value == value
-        current.prev.next = current.next
-        current.next.prev = current.prev
+      if current.value == value
+        if current == @head
+          @head = current.prev
+          current.prev.next = null
+        else if current == @tail
+          @tail = current.next
+          current.next.prev = null
+        else
+          current.prev.next = current.next
+          current.next.prev = current.prev
         return current
       else
         current = current.prev
     return "no match found"
 
-  search = (value) ->
+  search: (value) ->
     current = @head
-    while current
+    while current != @tail
+      if current.value == value
+        return current
+      else
+        current = current.prev
+    if current.value == value
+      return current
+    else
+      return "no match found"
 
+  toString: () ->
+    current = @tail
+    string = ""
+    while current.next
+      string += current.value + ", "
+      current = current.next
+    string += current.value
+    return string
 
-
-
-
-
-
+module.exports = {
+  LinkedList: LinkedList,
+  Node: Node
+}
 
 
 
