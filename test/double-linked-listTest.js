@@ -4,8 +4,9 @@ var Node = require('../lib/double-linked-list').Node;
 //required file must have a module.exports tag at the bottom
 
 describe("The double-linked-list", function() {
+  var list = new LinkedList();
+
   beforeEach(function() {
-    var list = new LinkedList();
     list.add(0);
     list.add(1);
     list.add(2);
@@ -44,51 +45,22 @@ describe("The double-linked-list", function() {
   })
 
   it('should remove a node at the tail', function(){
-    var list = new LinkedList();
-    list.add(0);
-    list.add(1);
-    list.add(2);
-    list.add("apples");
-    list.add(4);
     expect(list.remove(0).value).equal(0);
   })
 
   it('should remove a node at the head', function(){
-    var list = new LinkedList();
-    list.add(0);
-    list.add(1);
-    list.add(2);
-    list.add("apples");
-    list.add(4);
     expect(list.remove(4).value).equal(4);
   })
 
   it('should remove a node in the list', function(){
-    var list = new LinkedList();
-    list.add(0);
-    list.add(1);
-    list.add(2);
-    list.add("apples");
-    list.add(4);
     expect(list.remove("apples").value).equal("apples");
   })
 
   it('should return not found on remove if node not in list', function(){
-    var list = new LinkedList();
-    list.add(0);
-    list.add(1);
-    list.add(2);
-    list.add("apples");
-    list.add(4);
     expect(list.remove(5)).equal("no match found");
   })
 
   it('should return node at head on search if node in list', function(){
-    var list = new LinkedList();
-    list.add(0);
-    list.add(1);
-    list.add(2);
-    list.add("apples");
     list.add(4);
     expect(list.search(4).value).equal(4);
   })
@@ -96,30 +68,18 @@ describe("The double-linked-list", function() {
   it('should return node at tail on search if node in list', function(){
     var list = new LinkedList();
     list.add(0);
-    list.add(1);
-    list.add(2);
-    list.add("apples");
     list.add(4);
     expect(list.search(0).value).equal(0);
   })
 
   it('should return node in list on search if node in list', function(){
-    var list = new LinkedList();
     list.add(0);
-    list.add(1);
-    list.add(2);
     list.add("apples");
     list.add(4);
     expect(list.search("apples").value).equal("apples");
   })
 
   it('should return not found if node not list', function(){
-    var list = new LinkedList();
-    list.add(0);
-    list.add(1);
-    list.add(2);
-    list.add("apples");
-    list.add(4);
     expect(list.search(5)).equal("no match found");
   })
 

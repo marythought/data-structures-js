@@ -5,6 +5,7 @@
 **JavaScript Data Structures** a repo for data structures and algorithms. This collection holds sample code for a number of classic data structures implemented in JavaScript (and coffeescript), including:
 
 * doubly-linked lists
+* binary search tree
 
 ## Installation
 
