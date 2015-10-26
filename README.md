@@ -8,6 +8,12 @@
 
 * binary search tree: This search tree method contains two constructor functions: binary search tree and null binary search tree (for ease in traversing). A tree is initialized with a specified value and a left and right are assigned to Null Binary Trees until replaced using the "insert" method.
 
+* 4 binary search tree traversal methods:
+  ** in-order (left, node, right)
+  ** post-order (left, right, node)
+  ** pre-order (node, left, right)
+  ** breadth-first (root first, then neighbors in decending depth order (l-r))
+
 ## Installation
 
 ## Usage
