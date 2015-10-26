@@ -6,6 +6,12 @@ class NullBinaryTree
     false
   depth: ->
     0
+  inOrder: ->
+    null
+  postOrder: ->
+    null
+  preOrder: ->
+    null
 
 
 class BinarySearchTree
@@ -43,7 +49,23 @@ class BinarySearchTree
     right_height = @right.depth() + 1
     left_height - right_height
 
+  inOrder: ->
+    list = [@left.inOrder(), @value, @right.inOrder()]
+    list = list.filter (n) -> return n != null
+    merged = [].concat.apply([], list).join(', ')
+
+  postOrder: ->
+    list = [@left.postOrder(), @right.postOrder(), @value]
+    list = list.filter (n) -> return n != null
+    merged = [].concat.apply([], list).join(', ')
+
+  preOrder: ->
+    list = [@value, @left.preOrder(), @right.preOrder()]
+    list = list.filter (n) -> return n != null
+    merged = [].concat.apply([], list).join(', ')
+
 module.exports = {
   BinarySearchTree: BinarySearchTree,
   NullBinaryTree: NullBinaryTree
 }
+
