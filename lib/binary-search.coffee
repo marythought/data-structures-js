@@ -64,8 +64,24 @@ class BinarySearchTree
     list = list.filter (n) -> return n != null
     merged = [].concat.apply([], list).join(', ')
 
+  breadthFirst: ->
+    list = []
+    permalist = []
+    permalist.push @value
+    if !(@left instanceof NullBinaryTree)
+      list.push @left
+    if !(@right instanceof NullBinaryTree)
+      list.push @right
+    while list.length > 0
+      current = list.shift()
+      permalist.push current.value
+      if !(current.left instanceof NullBinaryTree)
+        list.push current.left
+      if !(current.right instanceof NullBinaryTree)
+        list.push current.right
+    return permalist.join(', ')
+
 module.exports = {
   BinarySearchTree: BinarySearchTree,
   NullBinaryTree: NullBinaryTree
 }
-

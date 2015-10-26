@@ -81,4 +81,8 @@ describe("The binary-search-tree", function() {
     expect(tree.postOrder()).equal('25, 10, 90, 80, 70, 50')
   });
 
+  it('should traverse a tree 4 ways: breadth-first', function(){
+    expect(tree.breadthFirst()).equal('50, 10, 70, 25, 80, 90')
+  });
+
 })
