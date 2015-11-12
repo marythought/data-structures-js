@@ -1,6 +1,5 @@
 # JS Data Structures
 
-
 ## Description
 **JavaScript Data Structures** a repo for data structures and algorithms. This collection holds sample code for a number of classic data structures implemented in JavaScript (and coffeescript), including:
 
@@ -14,24 +13,16 @@
   ** pre-order (node, left, right)
   ** breadth-first (root first, then neighbors in decending depth order (l-r))
 
-## Installation
-
 ## Usage
-
-## Configuration
-
-## Information
-
-Resources for data structures and algorithms in JavaScript:
-* I used [this site](http://articles.leetcode.com/2010/04/maximum-height-of-binary-tree.html) to help figure out depth of a binary tree
-
-### Known Issues
+* `npm test`
 
 ## Authors
 
 * Mary Dickson (https://github.com/marythought)
 
 ## Attribution
+
+* I used [this site](http://articles.leetcode.com/2010/04/maximum-height-of-binary-tree.html) to help figure out depth of a binary tree
 
 ## Contributing
 
